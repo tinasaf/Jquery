@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<div id="lamp" class="lamp"></div>
+
+<script>$('#lamp').ready(function () {});
+        for (let s = 0; s < 100; s++) {
+            let trafficLight = "";
+        
+            if (s % 3 == 0) {
+                trafficLight = "red";
+            }   
+            else if (s % 3 == 2) {
+                trafficLight = "green";
+            }
+            else if (s % 1 == 0) {
+                trafficLight = "yellow";
+            }
+        
+            lamp.innerHTML += `<div class="traffic" id="traffic` + s + `">
+                        <div class="lampu buled ${trafficLight}" id="lampu` + s +`">` + s +`</div>
+                        <button class="button buled" data-index="`+ s + `"></button></div>`
+        }
+
+            $('.traffic').each(function () {
+                lampu = $( this );
+                $( this ).find(".button").on("click", function () {
+                    $('#lampu' + $( this ).data('index')).toggleClass('on');
+                });
+            });
+</script>
+<style>.lamp{
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(12, 1fr);
+    width: max-content;
+  }
+  .traffic {
+    background: #000;
+    padding: 40px 20px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    gap: 40px;
+    border-radius: 10px;
+  }
+  .buled {
+    border-radius: 50%;
+  }
+  .green {
+    height: 80px;
+    width: 80px;
+    background: #12f1128a;
+  }
+  .green.on {
+    background: #12f112;
+  }
+  .button {
+    height: 30px;
+    width: 30px;
+    background: #3d3d3d;
+    border: none;
+    cursor: pointer;
+  }
+  .yellow {
+    height: 80px;
+    width: 80px;
+    background: #ffd00088;
+  }
+  .yellow.on {
+    background: #ffd000;
+  }
+  .red {
+    height: 80px;
+    width: 80px;
+    background: #ff000093;
+  }
+  .red.on {
+    background: #ff0000;
+  }
+</style>
+</body>
+</html>
